@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Play, RotateCcw, ArrowRight, Database, Cpu, Calculator, Binary, Settings, ArrowDown, MonitorPlay } from 'lucide-react';
+import { useState } from 'react';
+import { RotateCcw, ArrowRight, Database, Cpu, Calculator, Binary, Settings, MonitorPlay } from 'lucide-react';
 
 // --- Types & Constants ---
 
@@ -278,9 +278,6 @@ export default function CpuSimulator() {
       // For simplicity in this demo, going back doesn't revert "STORE" action on memory array visually immediately unless we structured history.
       // Re-sync memory to initial if we go back before step 18
       if (currentStepIndex <= 18) {
-         const newMem = [...INITIAL_MEMORY];
-         // If we are past step 18 in the *current* state (before clicking back), we might need to clear. 
-         // But simplest is: if back is clicked, just reset memory to initial if index < 19.
          setMemory(INITIAL_MEMORY);
       }
     }
